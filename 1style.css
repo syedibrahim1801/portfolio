@@ -1,0 +1,176 @@
+/* --- Global Styles & Colors --- */
+:root {
+    --bg-color: #121212; /* Very dark background */
+    --card-bg-color: #1a1a1a; /* Darker background for cards */
+    --text-color: #ffffff; /* White text for contrast */
+    --secondary-text-color: #aaaaaa; /* Lighter gray for secondary text */
+    --heading-color: #ffffff;
+    --accent-color-primary: #8a2be2; /* Violet/Purple color */
+    --accent-color-secondary: #00bfff; /* Blue for UI/UX */
+    --accent-color-data: #ffc300; /* Yellow/Orange for Data */
+    --accent-color-basic: #808080; /* Gray for Foundation */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    padding: 20px;
+}
+
+/* --- Section Header --- */
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.section-header h1 {
+    color: var(--accent-color-primary); /* Purple heading color */
+    font-size: 2.5em;
+    margin-bottom: 5px;
+}
+
+.section-header p {
+    color: var(--secondary-text-color);
+    font-size: 1.1em;
+}
+
+/* --- Main Layout: Two Columns using Flexbox --- */
+.content-container {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
+.left-column {
+    flex: 3; /* Takes more space, e.g., 60% */
+}
+
+.right-column {
+    flex: 2; /* Takes less space, e.g., 40% */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the right-side cards */
+}
+
+/* --- Card Styles --- */
+.card {
+    background-color: var(--card-bg-color);
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px; /* Space between cards in the left column */
+}
+
+.card h2 {
+    color: var(--heading-color);
+    font-size: 1.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #333; /* Separator line for headings */
+    padding-bottom: 10px;
+}
+
+/* --- Summary Card Text Styling --- */
+.summary-card p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+    color: var(--secondary-text-color);
+}
+
+.summary-card strong {
+    color: var(--text-color); /* Highlight key text */
+}
+
+/* --- Skills Progress Bars --- */
+.skill-item {
+    margin-bottom: 20px;
+}
+
+.skill-item label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.skill-item label span {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: var(--secondary-text-color);
+    margin-left: 10px;
+}
+
+.progress-bar-bg {
+    background-color: #333;
+    height: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    text-align: right;
+    padding-right: 5px;
+    box-sizing: border-box;
+    color: var(--text-color);
+    font-size: 0.75em;
+    border-radius: 8px;
+    transition: width 0.8s ease-in-out;
+    line-height: 15px; /* Vertically center the text */
+}
+
+/* Progress Bar Colors */
+.primary-color { background-color: var(--accent-color-primary); } /* HTML/JS - Purple */
+.secondary-color { background-color: var(--accent-color-secondary); } /* UI/UX - Blue */
+.basic-color { background-color: var(--accent-color-basic); } /* Java/C - Gray */
+.data-color { background-color: var(--accent-color-data); } /* Excel/Power BI - Yellow */
+
+
+/* --- List Styles (Certifications, Sports, Focus) --- */
+.card ul {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+    margin: 0;
+}
+
+.card li {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 10px;
+    color: var(--secondary-text-color);
+}
+
+/* Custom bullet point styling */
+.bullet-point {
+    position: absolute;
+    left: 0;
+    top: 5px;
+    height: 8px;
+    width: 8px;
+    background-color: var(--accent-color-secondary); /* Default blue bullet */
+    border-radius: 50%;
+}
+
+.yellow-bullet .bullet-point {
+    background-color: var(--accent-color-data); /* Yellow bullet for presentation */
+}
+
+/* --- Education Card --- */
+.education-card p {
+    margin: 5px 0;
+    color: var(--secondary-text-color);
+}
+
+.education-card strong {
+    color: var(--text-color);
+    display: block;
+    margin-top: 10px;
+}
+
+.education-card .dates {
+    font-style: italic;
+    color: var(--accent-color-basic);
+}
