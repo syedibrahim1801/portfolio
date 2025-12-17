@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charyour-imageet="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="style/style.css" />
 </head>
 <body>
   <!-- Navbar -->
@@ -45,7 +45,7 @@
     <!-- Home section photo circle -->
 <div class="photo-wrapper">
   <div class="photo-circle">
-    <img src="your-image.jpeg" alt="Your Photo">
+    <img src="templates/your-image.jpeg" alt="Your Photo">
   </div>
 </div>
 
@@ -272,7 +272,10 @@ Modern Frameworks</p>
       <p class="section-text">
         Feel free to reach out for collaborations or just a friendly hello.
       </p>
-      <form class="contact-form" id="contact-form">
+
+      <form class="contact-form" id="contact-form"
+       action="https://api.web3forms.com/submit" method="POST"  >
+         <input type="hidden" name="access_key" value="827cb977-b577-4c84-b8e6-f0301189a992">
         <div class="form-group">
           <label for="name">Name</label>
           <input id="name" type="text" placeholder="Your Name" required />
@@ -308,4 +311,4 @@ Modern Frameworks</p>
   </footer>
 
 
- <script src ="script.js"></script>
+ <script src ="style/script.js"></script>
