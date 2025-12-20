@@ -13,46 +13,37 @@ document.querySelectorAll(".nav-links a").forEach((link) => {
   });
 });
 
-// Simple contact form handler (front-end only)
-const contactForm = document.getElementById("contact-form");
-const formStatus = document.getElementById("form-status");
+// Contact form: submit via Web3Forms (AJAX)
+const form = document.getElementById("contact-form");
+const status = document.getElementById("form-status");
 
-contactForm.addEventListener("submit", (e) => {
+form.addEventListener("submit", async (e) => {
   e.preventDefault();
-  formStatus.textContent = "Thank you! Your message has been recorded (demo).";
-  contactForm.reset();
 
-  setTimeout(() => {
-    formStatus.textContent = "";
-  }, 4000);
-});
+  const formData = new FormData(form);
 
-  const form = document.getElementById("contact-form");
-  const status = document.getElementById("form-status");
+  try {
+    const response = await fetch(form.action, {
+      method: "POST",
+      headers: {
+        // Ensures Web3Forms returns JSON instead of an HTML redirect
+        Accept: "application/json",
+      },
+      body: formData,
+    });
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+    const result = await response.json();
 
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-      });
-
-      const result = await response.json();
-
-      if (result.success) {
-        status.textContent = "✅ Message sent successfully!";
-        status.style.color = "green";
-        form.reset();
-      } else {
-        status.textContent = "❌ Failed to send message.";
-        status.style.color = "red";
-      }
-    } catch (error) {
-      status.textContent = "❌ Network error. Try again.";
+    if (result && result.success) {
+      status.textContent = "✅ Message sent successfully!";
+      status.style.color = "green";
+      form.reset();
+    } else {
+      status.textContent = "❌ Failed to send message.";
       status.style.color = "red";
     }
-  });
+  } catch (error) {
+    status.textContent = "❌ Network error. Try again.";
+    status.style.color = "red";
+  }
+});
